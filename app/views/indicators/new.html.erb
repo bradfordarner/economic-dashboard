@@ -1,0 +1,9 @@
+<%= form_for(@indicator) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>	
+
+	<%= f.label :series, "Please enter a Series ID from the Federal Reserve System" %>
+	<%= f.text_field :series %>
+
+	<%= f.submit "Submit" %>
+<% end %>

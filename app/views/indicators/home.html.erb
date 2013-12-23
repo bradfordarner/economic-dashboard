@@ -1,0 +1,9 @@
+<h6>Below is a dashboard of the most common economic indicators.</h6>
+<% @top_ten.each do |indicator| %>
+	<h4 class="subheader"><%= indicator.name %></h4>
+	<% unless indicator.observations.nil? %>
+		<%= area_chart indicator.chart_values %>
+		<!-- <p><%= p indicator.observations.observations %></p> -->
+	<% end %>
+<!-- 	<%= link_to "Delete", indicator, method: :delete %> -->
+<% end %>
