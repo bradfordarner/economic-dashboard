@@ -13,6 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.peity.min
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ 
+	$(document).foundation(); 
+
+	$("span.pie").peity("pie");
+
+});

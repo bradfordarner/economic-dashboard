@@ -1,7 +1,18 @@
 <h6>Below is a dashboard of the most common economic indicators.</h6>
+<hr>
 <% @top_ten.each do |indicator| %>
-	<h4 class="subheader"><%= indicator.name %></h4>
 	<% unless indicator.observations.nil? %>
+		<div class="row">
+			<div class="large-6 columns">
+				<h5><%= indicator.name %></h5>
+				<p class="subheader">Most Recent: <%= indicator.last_observation %></p>
+			</div>
+			<div class="large-6 columns">
+				<h5 class="subheader">Current Value: <%= indicator.current_value %></h5>
+				<p class="subheader">Change: <%= indicator.percentage_change %>%</p>
+			</div>
+		</div>
+
 		<%= area_chart indicator.chart_values %>
 		<!-- <p><%= p indicator.observations.observations %></p> -->
 	<% end %>
