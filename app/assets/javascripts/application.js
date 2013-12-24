@@ -21,9 +21,11 @@ $(function(){
 	$(document).foundation(); 
 
 	$(".indicator").hover(function(){
-		$(this).children(".hidden_values").show('slow');
+		$(this).children(".details").children(".shown_values").hide('slow');
+		$(this).children(".details").children(".hidden_values").show('slow');
 	}, function() {
-		$(this).children(".hidden_values").hide('slow');
+		$(this).children(".details").children(".hidden_values").hide('slow');
+		$(this).children(".details").children(".shown_values").show("slow");
 	});
 
 	$(window).load(function() {
@@ -32,6 +34,4 @@ $(function(){
 			columnWidth: 240
 		});
 	});
-
-
 });

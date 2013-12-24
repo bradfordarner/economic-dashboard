@@ -5,13 +5,13 @@
 		<% unless indicator.observations.nil? %>
 			<div class="large-3 columns indicator masonry-brick">
 				<h5><%= indicator.name %></h5>
-				<p class="subheader">Recent Change: <%= indicator.percentage_change %>%</p>
+				<p><small>Last Update: <%= indicator.last_observation %></small></p>
+				<div class="details">
+					<p class="subheader shown_values">Recent Change: <%= indicator.percentage_change %>%</p>
+					<p class="subheader hidden_values", style="display:none;">Current Value: <%= indicator.current_value %></p>
+				</div>	
 				<%= area_chart indicator.chart_values, height: "120px" %>
-				<div class="hidden_values" style="display:none; margin-top:10px;">
-					<p class="subheader">Current Value: <%= indicator.current_value %></p>
-					<p class="subheader">Most Recent: <%= indicator.last_observation %></p>
-				</div>
-				
+
 				<!-- 	<%= link_to "Delete", indicator, method: :delete %> -->
 			</div>
 		<% end %>
