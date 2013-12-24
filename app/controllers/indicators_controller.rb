@@ -24,6 +24,7 @@ class IndicatorsController < ApplicationController
 			if series.error_code.nil?
 				last_update = Time.parse(series.seriess.first.last_updated)
 				frequency = series.seriess.first.frequency_short
+				@indicator.frequency_short = frequency
 				case frequency
 				when "D"
 					@next_release = last_update + 1.day

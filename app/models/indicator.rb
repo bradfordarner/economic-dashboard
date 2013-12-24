@@ -1,16 +1,16 @@
 class Indicator < ActiveRecord::Base
-  attr_accessible :name, :next_release, :observations, :series
+  attr_accessible :name, :next_release, :observations, :series, :frequency_short
 
   has_many :updates
 
   serialize :observations
 
   def chart_values
-  	case self.observations.frequency_short
+  	case self.frequency_short
   	when "M"
   		count = self.observations.observations.count - 72
   	when "A"
-  		count = self.observations.observations.count - 5
+  		count = self.observations.observations.count - 10
   	when "D"
   		count = self.observations.observations.count - 90
   	when "Q"
