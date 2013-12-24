@@ -1,3 +1,13 @@
 #main_body {
 	margin-top: 40px;
 }
+
+.indicator {
+	background-color: lighten(gray, 40%);
+	padding: 10px;
+	margin:10px;
+}
+
+.masonry-brick { width: 220px; margin: 10px; float: left;  }
+
+#masonryContainer { width: 0 auto; }

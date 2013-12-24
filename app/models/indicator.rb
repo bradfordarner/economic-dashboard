@@ -36,6 +36,6 @@ class Indicator < ActiveRecord::Base
 
   def last_observation
   	last = self.observations.observations.last.date
-  	return Date.parse(last).strftime("%B %d, %Y")
+  	return Date.parse(last).strftime("%b %d, %Y")
   end
 end

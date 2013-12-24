@@ -1,20 +1,19 @@
 <h6>Below is a dashboard of the most common economic indicators.</h6>
 <hr>
-<% @top_ten.each do |indicator| %>
-	<% unless indicator.observations.nil? %>
-		<div class="row">
-			<div class="large-6 columns">
+<div id="masonryContainer">
+	<% @top_ten.each do |indicator| %>
+		<% unless indicator.observations.nil? %>
+			<div class="large-3 columns indicator masonry-brick">
 				<h5><%= indicator.name %></h5>
-				<p class="subheader">Most Recent: <%= indicator.last_observation %></p>
+				<p class="subheader">Recent Change: <%= indicator.percentage_change %>%</p>
+				<%= area_chart indicator.chart_values, height: "120px" %>
+				<div class="hidden_values" style="display:none; margin-top:10px;">
+					<p class="subheader">Current Value: <%= indicator.current_value %></p>
+					<p class="subheader">Most Recent: <%= indicator.last_observation %></p>
+				</div>
+				
+				<!-- 	<%= link_to "Delete", indicator, method: :delete %> -->
 			</div>
-			<div class="large-6 columns">
-				<h5 class="subheader">Current Value: <%= indicator.current_value %></h5>
-				<p class="subheader">Change: <%= indicator.percentage_change %>%</p>
-			</div>
-		</div>
-
-		<%= area_chart indicator.chart_values %>
-		<!-- <p><%= p indicator.observations.observations %></p> -->
+		<% end %>
 	<% end %>
-<!-- 	<%= link_to "Delete", indicator, method: :delete %> -->
-<% end %>
+</div>

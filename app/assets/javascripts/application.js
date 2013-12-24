@@ -14,11 +14,24 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery.peity.min
+//= require masonry.pkgd.min
 //= require_tree .
 
 $(function(){ 
 	$(document).foundation(); 
 
-	$("span.pie").peity("pie");
+	$(".indicator").hover(function(){
+		$(this).children(".hidden_values").show('slow');
+	}, function() {
+		$(this).children(".hidden_values").hide('slow');
+	});
+
+	$(window).load(function() {
+		$("#masonryContainer").masonry({
+			itemSelector: '.masonry-brick',
+			columnWidth: 240
+		});
+	});
+
 
 });
